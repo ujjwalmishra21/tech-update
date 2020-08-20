@@ -25,7 +25,7 @@ public class FileService {
         byte[] data = fis.readAllBytes();
 
 
-        return fileRepository.save(new File(name,size,type,data));
+        return fileRepository.save(new File(name,type,size,data));
     }
 
     public List<File> getFile(List<Long> idList){

@@ -1,6 +1,6 @@
-package com.project.techupdate.dto;
+package com.project.techupdate.response;
 
-public class FileResponseDTO {
+public class FileResponse {
     private Long id;
     private String fileName;
     private String message;

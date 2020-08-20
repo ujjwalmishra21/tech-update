@@ -1,6 +1,13 @@
 package com.project.techupdate.entity;
 
+import org.apache.tomcat.jni.Local;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.format.datetime.standard.DateTimeContext;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 public class File {
@@ -14,6 +21,12 @@ public class File {
     @Lob
     private byte[] fileData;
 
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
+
     public File(){}
 
     public File(String fileName, String fileType, String fileSize, byte[] fileData) {
@@ -22,6 +35,23 @@ public class File {
         this.fileSize = fileSize;
         this.fileData = fileData;
     }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
 
     public long getId() {
         return id;

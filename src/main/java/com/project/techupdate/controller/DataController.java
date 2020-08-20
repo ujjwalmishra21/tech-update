@@ -1,6 +1,7 @@
 package com.project.techupdate.controller;
 
 import com.project.techupdate.dto.DataDTO;
+import com.project.techupdate.dto.DataPartialDTO;
 import com.project.techupdate.entity.Data;
 import com.project.techupdate.entity.File;
 import com.project.techupdate.services.DataService;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -23,7 +25,7 @@ public class DataController {
     @Autowired
     FileService fileService;
 
-    @PostMapping("/addData")
+    @PostMapping("/add-data")
     public ResponseEntity<Data> addData(@RequestBody DataDTO dataDTO){
         Data data = convertDataDTOToData(dataDTO);
         List<File> files = fileService.getFile(dataDTO.getIdList());
@@ -35,9 +37,22 @@ public class DataController {
         return ResponseEntity.ok(dataResponse);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<DataDTO> getDataById(@PathVariable Long id){
+        Data data = dataService.getDataById(id);
+        DataDTO dataDTO = convertDataToDataDTO(data);
+        return ResponseEntity.ok(dataDTO);
+    }
+
     @GetMapping
-    public ResponseEntity<List<Data>> getData(){
-        return ResponseEntity.ok(dataService.findAll());
+    public ResponseEntity<List<DataPartialDTO>> getData(){
+        List<Data> dataList = dataService.findAll();
+        List<DataPartialDTO> dataDTOS = new ArrayList<>();
+        for(Data data : dataList){
+            DataPartialDTO dataDTO = convertDataToDataPartialDTO(data);
+            dataDTOS.add(dataDTO);
+        }
+        return ResponseEntity.ok(dataDTOS);
     }
 
     public static Data convertDataDTOToData(DataDTO dataDTO){
@@ -45,4 +60,17 @@ public class DataController {
         BeanUtils.copyProperties(dataDTO,data);
         return data;
     }
+
+    public static DataDTO convertDataToDataDTO(Data data){
+        DataDTO dataDTO = new DataDTO();
+        BeanUtils.copyProperties(data,dataDTO);
+        return dataDTO;
+    }
+
+    public static DataPartialDTO convertDataToDataPartialDTO(Data data){
+        DataPartialDTO dataDTO = new DataPartialDTO();
+        BeanUtils.copyProperties(data,dataDTO);
+        return dataDTO;
+    }
+
 }
