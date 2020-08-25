@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import static java.util.Collections.emptyList;
-
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     private UserRepository userRepository;
@@ -33,9 +31,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Set<Role> roles = user.getRole();
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         for(Role role: roles){
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
         }
-
-        return new User(user.getUsername(), user.getPassword(), authorities);
+        UserDetails userDetails = (UserDetails)new User(user.getUsername(), user.getPassword(), authorities);
+        return userDetails;
     }
 }

@@ -6,6 +6,8 @@ import com.project.techupdate.services.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,7 @@ import java.io.IOException;
 public class FileController {
     @Autowired
     FileService fileService;
+
 
     @PostMapping("/upload-file")
     public ResponseEntity<FileResponse> uploadFile(@RequestParam("file") MultipartFile multipartFile) throws IOException {

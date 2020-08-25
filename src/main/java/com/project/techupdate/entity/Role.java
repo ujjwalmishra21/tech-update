@@ -15,18 +15,6 @@ public class Role {
 
     private String description;
 
-//    @ManyToMany(mappedBy = "")
-//    private Set<User> user;
-//
-//    public Set<User> getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(Set<User> user) {
-//        this.user = user;
-//    }
-
-
     public Long getId() {
         return id;
     }
