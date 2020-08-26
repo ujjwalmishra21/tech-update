@@ -53,7 +53,6 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                     .build()
                     .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""));
 
-            System.out.println("token" + token.replace(SecurityConstants.TOKEN_PREFIX,""));
             String user = decodedJWT.getSubject();
             String roles = decodedJWT.getClaim("roles").as(TextNode.class).asText();
 

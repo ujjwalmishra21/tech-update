@@ -31,7 +31,6 @@ public class User {
     )
     private Set<Role> userRole;
 
-
     public Set<Role> getRole() {
         return userRole;
     }
@@ -39,7 +38,6 @@ public class User {
     public void setRole(Set<Role> userRole) {
         this.userRole = userRole;
     }
-
 
     public Long getId() {
         return id;

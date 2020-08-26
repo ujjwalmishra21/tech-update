@@ -4,8 +4,10 @@ import com.project.techupdate.dto.DataDTO;
 import com.project.techupdate.dto.DataPartialDTO;
 import com.project.techupdate.entity.Data;
 import com.project.techupdate.entity.File;
+import com.project.techupdate.entity.User;
 import com.project.techupdate.services.DataService;
 import com.project.techupdate.services.FileService;
+import com.project.techupdate.services.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,16 +22,21 @@ import java.util.List;
 @RequestMapping("/data")
 public class DataController {
     @Autowired
-    DataService dataService;
+    private DataService dataService;
 
     @Autowired
-    FileService fileService;
+    private FileService fileService;
+
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/add-data")
     public ResponseEntity<Data> addData(@RequestBody DataDTO dataDTO){
         Data data = convertDataDTOToData(dataDTO);
+
         List<File> files = fileService.getFile(dataDTO.getIdList());
         data.setFiles(files);
+
         Data dataResponse = dataService.addData(data);
         if(dataResponse == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

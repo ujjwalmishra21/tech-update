@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
     @Autowired
@@ -22,5 +24,13 @@ public class UserService {
         userRepository.save(user);
 
         return user;
+    }
+
+    public User getUserById(Long id){
+        Optional<User> optionalUser = userRepository.findById(id);
+        if(!optionalUser.isPresent()){
+           throw new Error("User not found");
+        }
+        return optionalUser.get();
     }
 }

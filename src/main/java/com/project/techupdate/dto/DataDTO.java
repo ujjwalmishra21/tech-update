@@ -14,7 +14,6 @@ public class DataDTO {
     private List<File> files;
     private LocalDateTime createdAt;
 
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
