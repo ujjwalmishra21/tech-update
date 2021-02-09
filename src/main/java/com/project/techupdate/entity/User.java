@@ -22,7 +22,6 @@ public class User {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
