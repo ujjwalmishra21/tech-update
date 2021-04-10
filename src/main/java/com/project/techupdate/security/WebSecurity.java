@@ -31,6 +31,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/file/upload-file").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/data/add-data").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/data/like").hasRole("USER")
                 .antMatchers(HttpMethod.GET,"/data").hasAnyRole("USER","ADMIN")
                 .antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL).permitAll()
                 .anyRequest().authenticated()

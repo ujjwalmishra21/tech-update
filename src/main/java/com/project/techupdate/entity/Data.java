@@ -23,11 +23,15 @@ public class Data {
     @JoinColumn(name = "data_id",referencedColumnName = "id")
     private List<File> files;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<User> likes;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
@@ -75,5 +79,13 @@ public class Data {
 
     public void setFiles(List<File> files) {
         this.files = files;
+    }
+
+    public List<User> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<User> likes) {
+        this.likes = likes;
     }
 }

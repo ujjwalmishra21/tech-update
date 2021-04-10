@@ -2,6 +2,7 @@ package com.project.techupdate.controller;
 
 import com.project.techupdate.dto.DataDTO;
 import com.project.techupdate.dto.DataPartialDTO;
+import com.project.techupdate.dto.PostLikeDTO;
 import com.project.techupdate.entity.Data;
 import com.project.techupdate.entity.File;
 import com.project.techupdate.entity.User;
@@ -29,6 +30,7 @@ public class DataController {
 
     @Autowired
     private UserService userService;
+
 
     @PostMapping("/add-data")
     public ResponseEntity<Data> addData(@RequestBody DataDTO dataDTO){
@@ -60,6 +62,18 @@ public class DataController {
             dataDTOS.add(dataDTO);
         }
         return ResponseEntity.ok(dataDTOS);
+    }
+
+    @PostMapping("/like")
+    public ResponseEntity<DataDTO> likeData(@RequestBody PostLikeDTO post){
+
+        User user = userService.getUserById(post.getUserId());
+        if(user == null){
+//            return ResponseEntity.badRequest();
+        }
+        Data data = dataService.likeData(post.getId(),user);
+        DataDTO dataDTO = convertDataToDataDTO(data);
+        return ResponseEntity.ok(dataDTO);
     }
 
     public static Data convertDataDTOToData(DataDTO dataDTO){

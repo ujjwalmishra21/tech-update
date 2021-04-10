@@ -1,6 +1,7 @@
 package com.project.techupdate.dto;
 
 import com.project.techupdate.entity.File;
+import com.project.techupdate.entity.User;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,6 +11,7 @@ public class DataPartialDTO {
     private String title;
     private List<Long> idList;
     private List<File> files;
+    private List<User> likes;
     private LocalDateTime createdAt;
 
     public Long getId() {
@@ -42,6 +44,14 @@ public class DataPartialDTO {
 
     public void setFiles(List<File> files) {
         this.files = files;
+    }
+
+    public List<User> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<User> likes) {
+        this.likes = likes;
     }
 
     public LocalDateTime getCreatedAt() {
