@@ -13,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import com.google.gson.Gson;
 
@@ -70,7 +71,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                     .sign(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()));
             res.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
 
-            String tokenStr = new Gson().toJson(new Token(SecurityConstants.TOKEN_PREFIX + token));
+//          String tokenStr = new Gson().toJson(new Token(SecurityConstants.TOKEN_PREFIX + token));
+            String tokenStr = new Gson().toJson(new Token(SecurityConstants.TOKEN_PREFIX + token, ((org.springframework.security.core.userdetails.User)auth.getPrincipal()).getUsername()));
             res.setContentType("application/json");
             res.setCharacterEncoding("UTF-8");
             res.getWriter().write(tokenStr);
