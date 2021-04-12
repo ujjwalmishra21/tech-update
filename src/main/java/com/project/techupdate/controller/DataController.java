@@ -13,6 +13,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -65,13 +66,14 @@ public class DataController {
     }
 
     @PostMapping("/like")
-    public ResponseEntity<DataDTO> likeData(@RequestBody PostLikeDTO post){
+    public ResponseEntity<DataDTO> likeData(@RequestBody PostLikeDTO post, Authentication auth){
+        String username = auth.getPrincipal().toString();
 
-        User user = userService.getUserById(post.getUserId());
+        User user = userService.getUserByUsername(username);
         if(user == null){
-//            return ResponseEntity.badRequest();
+//            return ResponseEntity.badRequest(null);
         }
-        Data data = dataService.likeData(post.getId(),user);
+        Data data = dataService.likeUnlikeData(post.getId(),user);
         DataDTO dataDTO = convertDataToDataDTO(data);
         return ResponseEntity.ok(dataDTO);
     }

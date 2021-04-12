@@ -30,20 +30,29 @@ public class DataService {
         return dataOptional.get();
     }
 
-    public Data likeData(Long id, User user) {
+    public Data likeUnlikeData(Long id, User user) {
         Optional<Data> dataOptional = dataRepository.findById(id);
         if(!dataOptional.isPresent()){
             throw new Error("Invalid post id");
         }
         Data data = dataOptional.get();
         List<User> likes = data.getLikes();
-        likes.add(user);
+        boolean unlike = false;
+
+        for(int i=0; i<likes.size(); i++){
+            if(likes.get(i).getId() == user.getId()){
+                likes.remove(i);
+                unlike = true;
+                break;
+            }
+        }
+        if(!unlike){
+            likes.add(user);
+            System.out.println(user.getUsername() + " added");
+        }
+
         data.setLikes(likes);
         dataRepository.save(data);
-//        List<Data> postsLiked = user.getPostsLiked();
-//        postsLiked.add(data);
-//        user.setPostsLiked(postsLiked);
-//        this.addData(data);
         return data;
     }
 }

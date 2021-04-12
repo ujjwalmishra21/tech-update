@@ -5,6 +5,7 @@ import com.project.techupdate.repository.UserRepository;
 import com.project.techupdate.request.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,14 @@ public class UserService {
            throw new Error("User not found");
         }
         return optionalUser.get();
+    }
+
+    public User getUserByUsername(String username){
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            throw new UsernameNotFoundException(username);
+        }
+
+        return user;
     }
 }
