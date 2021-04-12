@@ -48,7 +48,6 @@ public class DataService {
         }
         if(!unlike){
             likes.add(user);
-            System.out.println(user.getUsername() + " added");
         }
 
         data.setLikes(likes);
