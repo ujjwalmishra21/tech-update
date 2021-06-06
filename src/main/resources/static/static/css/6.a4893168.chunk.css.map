@@ -1,0 +1,1 @@
+{"version":3,"sources":["Posts.css"],"names":[],"mappings":"AAAA,eACI,YAAa,CACb,SAAU,CACV,cAAe,CACf,eAAgB,CAChB,sBACJ","file":"6.a4893168.chunk.css","sourcesContent":[".posts-section{\r\n    display: flex;\r\n    width: 80%;\r\n    flex-wrap: wrap;\r\n    margin-top: 20px;\r\n    justify-content: center;\r\n}"]}

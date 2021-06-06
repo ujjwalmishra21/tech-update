@@ -24,6 +24,8 @@ public class Data {
     private List<File> files;
 
     @ManyToMany(fetch = FetchType.EAGER)
+
+
     private List<User> likes;
 
     @CreationTimestamp
