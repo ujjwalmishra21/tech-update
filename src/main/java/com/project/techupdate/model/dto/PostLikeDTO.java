@@ -1,4 +1,4 @@
-package com.project.techupdate.dto;
+package com.project.techupdate.model.dto;
 
 public class PostLikeDTO {
     private Long id;

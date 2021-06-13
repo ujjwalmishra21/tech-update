@@ -1,4 +1,4 @@
-package com.project.techupdate.response;
+package com.project.techupdate.model.response;
 
 public class FileResponse {
     private Long id;

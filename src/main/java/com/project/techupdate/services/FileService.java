@@ -1,12 +1,11 @@
 package com.project.techupdate.services;
 
-import com.project.techupdate.entity.File;
-import com.project.techupdate.repository.FileRepository;
+import com.project.techupdate.model.entity.File;
+import com.project.techupdate.model.repository.FileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;

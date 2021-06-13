@@ -1,12 +1,9 @@
-package com.project.techupdate.entity;
+package com.project.techupdate.model.entity;
 
-import org.apache.tomcat.jni.Local;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.format.datetime.standard.DateTimeContext;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity

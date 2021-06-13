@@ -1,9 +1,8 @@
-package com.project.techupdate.entity;
+package com.project.techupdate.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity

@@ -1,7 +1,7 @@
-package com.project.techupdate.dto;
+package com.project.techupdate.model.dto;
 
-import com.project.techupdate.entity.File;
-import com.project.techupdate.entity.User;
+import com.project.techupdate.model.entity.File;
+import com.project.techupdate.model.entity.User;
 
 import java.time.LocalDateTime;
 import java.util.List;

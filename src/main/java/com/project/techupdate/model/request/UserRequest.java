@@ -1,4 +1,4 @@
-package com.project.techupdate.request;
+package com.project.techupdate.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -1,7 +1,7 @@
 package com.project.techupdate.security;
 
-import com.project.techupdate.entity.Role;
-import com.project.techupdate.repository.UserRepository;
+import com.project.techupdate.model.entity.Role;
+import com.project.techupdate.model.repository.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        com.project.techupdate.entity.User user = userRepository.findByUsername(username);
+        com.project.techupdate.model.entity.User user = userRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException(username);
         }

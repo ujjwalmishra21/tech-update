@@ -1,10 +1,8 @@
 package com.project.techupdate.services;
 
-import com.project.techupdate.entity.User;
-import com.project.techupdate.repository.UserRepository;
-import com.project.techupdate.request.UserRequest;
+import com.project.techupdate.model.entity.User;
+import com.project.techupdate.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

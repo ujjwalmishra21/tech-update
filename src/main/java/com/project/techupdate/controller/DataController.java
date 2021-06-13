@@ -1,11 +1,11 @@
 package com.project.techupdate.controller;
 
-import com.project.techupdate.dto.DataDTO;
-import com.project.techupdate.dto.DataPartialDTO;
-import com.project.techupdate.dto.PostLikeDTO;
-import com.project.techupdate.entity.Data;
-import com.project.techupdate.entity.File;
-import com.project.techupdate.entity.User;
+import com.project.techupdate.model.dto.DataDTO;
+import com.project.techupdate.model.dto.DataPartialDTO;
+import com.project.techupdate.model.dto.PostLikeDTO;
+import com.project.techupdate.model.entity.Data;
+import com.project.techupdate.model.entity.File;
+import com.project.techupdate.model.entity.User;
 import com.project.techupdate.services.DataService;
 import com.project.techupdate.services.FileService;
 import com.project.techupdate.services.UserService;

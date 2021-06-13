@@ -85,6 +85,18 @@
                     <target>9</target>
                 </configuration>
             </plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>2.2.0</version>
+				<configuration>
+					<deploy.projectId>tech-updates-67225</deploy.projectId>
+					<deploy.version>1</deploy.version>
+				</configuration>
+			</plugin>
 		 </plugins>
 
 	</build>

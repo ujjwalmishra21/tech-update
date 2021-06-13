@@ -1,8 +1,8 @@
 package com.project.techupdate.services;
 
-import com.project.techupdate.entity.Data;
-import com.project.techupdate.entity.User;
-import com.project.techupdate.repository.DataRepository;
+import com.project.techupdate.model.entity.Data;
+import com.project.techupdate.model.entity.User;
+import com.project.techupdate.model.repository.DataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

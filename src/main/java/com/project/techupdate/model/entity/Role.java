@@ -1,9 +1,8 @@
-package com.project.techupdate.entity;
+package com.project.techupdate.model.entity;
 
 
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class Role {

@@ -1,7 +1,6 @@
-package com.project.techupdate.dto;
+package com.project.techupdate.model.dto;
 
-import com.project.techupdate.entity.File;
-import org.springframework.web.multipart.MultipartFile;
+import com.project.techupdate.model.entity.File;
 
 import java.time.LocalDateTime;
 import java.util.List;

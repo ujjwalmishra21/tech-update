@@ -1,22 +1,16 @@
 package com.project.techupdate.controller;
 
-import com.project.techupdate.entity.Data;
-import com.project.techupdate.entity.Role;
-import com.project.techupdate.entity.User;
-import com.project.techupdate.repository.DataRepository;
-import com.project.techupdate.repository.UserRepository;
-import com.project.techupdate.request.UserRequest;
+import com.project.techupdate.model.entity.Role;
+import com.project.techupdate.model.entity.User;
+import com.project.techupdate.model.request.UserRequest;
 import com.project.techupdate.services.RoleService;
 import com.project.techupdate.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashSet;
 import java.util.List;

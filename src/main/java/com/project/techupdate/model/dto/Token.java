@@ -1,7 +1,5 @@
-package com.project.techupdate.dto;
+package com.project.techupdate.model.dto;
 
-
-import org.springframework.security.core.userdetails.User;
 
 public class Token {
     private String token;

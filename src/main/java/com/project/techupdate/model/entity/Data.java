@@ -1,4 +1,4 @@
-package com.project.techupdate.entity;
+package com.project.techupdate.model.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;

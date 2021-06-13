@@ -1,6 +1,6 @@
-package com.project.techupdate.repository;
+package com.project.techupdate.model.repository;
 
-import com.project.techupdate.entity.Data;
+import com.project.techupdate.model.entity.Data;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
