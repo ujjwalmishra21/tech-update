@@ -1,0 +1,1 @@
+{"version":3,"sources":["Signup.css"],"names":[],"mappings":"AAAA,YACI,kBAEJ,CACA,WACI,eACJ","file":"8.90991d7b.chunk.css","sourcesContent":[".text-field{\r\n    margin-bottom: 10px;  \r\n    \r\n}\r\n.alert-div{\r\n    margin-top: 15px;\r\n}\r\n/* .signup-form{\r\n    margin-top: 20%;\r\n}\r\n */\r\n"]}

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -27,6 +28,10 @@ public class UserController {
 
     @PostMapping("/create")
     public ResponseEntity<User> createUser(@RequestBody UserRequest userRequest){
+
+        if(userRequest.getRoleIds() == null)
+            userRequest.setRoleIds(new ArrayList<Long>(){{add(2l);}});
+
         List<Role> roles = roleService.getRoleByIds(userRequest.getRoleIds());
         if(roles == null || userRequest.getPassword().length() <= 7 || !userRequest.getPassword().equals(userRequest.getConfirmPassword())){
             return ResponseEntity.badRequest().build();
